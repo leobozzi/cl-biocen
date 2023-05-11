@@ -22,7 +22,7 @@
     'version': '15.0.0.0.0',
     'license': 'Other OSI approved licence',
     'category': 'Tools',
-    'summary': 'Customización MTAgro',
+    'summary': 'Customización Biocen',
     'author': 'Leonardo Bozzi, Ing.',
     'depends': [
         # Applicaciones del Cliente
