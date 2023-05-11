@@ -217,9 +217,9 @@
     ],
 
     'git-repos': [
-        'https://github.com/leobozzi/cl-biocen.git',
+        'https://github.com/leobozzi/cl-biocen cl-biocen',
         #'https://github.com/leobozzi/odoo-addons-utils.git',
-        'https://github.com/leobozzi/enterprise.git',
+        'https://github.com/leobozzi/enterprise enterprise',
         #'https://github.com/vangrow/account-modules.git',
 
 
