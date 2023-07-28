@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- A4 Paper format -->
+        <record id="paperformat_preprinted" model="report.paperformat">
+            <field name="name">pre printed</field>
+            <field eval="False" name="default" />
+            <field name="format">A4</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">0</field>
+            <field name="margin_bottom">0</field>
+            <field name="margin_left">0</field>
+            <field name="margin_right">0</field>
+            <field eval="False" name="header_line" />
+            <field name="header_spacing">0</field>
+            <field name="dpi">72</field>
+        </record>
+
+        <!-- Internal Move design -->
+        <template id="report_preprinted_internal_move">
+            <div class="page" style="zoom:1.25;font-size:0.8em;">
+                <div id="item_box" style="position:absolute;left:10mm;top:33mm;">
+                    <table class="tabel table-sm"
+                        t-if="o.move_line_ids and o.move_ids_without_package" style="width:135mm;">
+                        <tbody style="border-style: solid;">
+                            <tr style="border-style: solid;">
+                                <th>Nro.</th>
+                                <th>
+                                    <span>PRODUCTO</span>
+                                </th>
+                                <th>
+                                    <span>COD.</span>
+                                </th>
+                                <th>
+                                    <span>LOTE</span>
+                                </th>
+                                <th>
+                                    <span>CANTIDAD</span>
+                                </th>
+                                <th>
+                                    <span>UD.</span>
+                                </th>
+                            </tr>
+                            <t t-as="line" t-foreach="records">
+                                <tr style="border-style: groove;">
+                                    <td>
+                                        <span t-esc="line_index + 1" />
+                                    </td>
+                                    <td>
+                                        <span style="overflow:hidden;white-space: nowrap;"
+                                            t-field="line.product_id" />
+                                    </td>
+                                    <td>
+                                        <span t-field="line.product_id.default_code" />
+                                    </td>
+                                    <td>
+                                        <span t-field="line.lot_id" />
+                                    </td>
+                                    <td>
+                                        <span t-field="line.qty_done" />
+                                    </td>
+                                    <td>
+                                        <span t-field="line.product_uom_id" />
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </template>
+
+        <!-- Internal Header design -->
+        <template id="report_preprinted_internal_header">
+            <div class="page" style="zoom:1.25;font-size:0.8em;">
+                <div t-if="o.partner_id" name="partner_header" style="position:relative;">
+                    <span style="position:absolute;left:135mm;top:28mm;width:70mm;font-size:1em;">
+                        Fecha: <a t-field="o.date_done" style="font-weight:bold;" />
+                    </span>
+                    <span style="position:absolute;left:15mm;top:20mm;width:130mm;font-size:1em;"
+                        t-field="o.partner_id" />
+                    <span style="position:absolute;left:15mm;top:25mm;width:150mm;">
+                        <a t-field="o.partner_id.street" /> - <a t-field="o.partner_id.city" /> - <a
+                            t-field="o.partner_id.state_id" /> - <a t-field="o.partner_id.zip" />
+                    </span>
+                    <span style="position:absolute;left:15mm;top:30mm;width:130mm;"
+                        t-field="o.partner_id.l10n_ar_afip_responsibility_type_id" />
+                    <span style="position:absolute;left:55mm;top:30mm;width:130mm;">
+                        <a t-field="o.partner_id.l10n_latam_identification_type_id" />: <a
+                            t-field="o.partner_id.vat" />
+                    </span>
+                </div>
+                <div t-if="o.partner_id" name="sale_order_header" style="position:absolute;">
+                    <span
+                        style="position:absolute;left:15mm;top:35mm;width:130mm;font-size:1em;font-weight:bold;">
+                        Ref.: <a t-field="o.name" /> - Orden: <a t-field="o.origin" />
+                    </span>
+                </div>
+                <div t-if="o.move_line_ids_without_package" name="move_line"
+                    style="position:absolute;">
+                    <t t-call="biocen_default.report_preprinted_internal_move" />
+                </div>
+            </div>
+        </template>
+
+        <!-- Print 1 Pages -->
+        <template id="report_preprinted_pages">
+            <div class="page" style="zoom:1.25;font-size:0.8em;">
+                <div style="width:100%;top:17mm;height:160mm; position:relative;">
+                    <span
+                        style="position:absolute;left:180mm;top:25mm;width:70mm;font-size:1.2em;font-weight:bold;">
+                        ORIGINAL</span>
+                    <span style="position:absolute;left:130mm;top:30mm;width:70mm;font-weight:bold;">DOCUMENTO
+                        NO VÁLIDO COMO FACTURA</span>
+                    <t t-call="biocen_default.report_preprinted_internal_header" />
+                </div>
+                <div style="width:100%; top:35mm;height:160mm; position:relative;">
+                    <span
+                        style="position:absolute;left:180mm;top:25mm;width:70mm;font-size:1.2em;font-weight:bold;">
+                        DUPLICADO</span>
+                    <span style="position:absolute;left:130mm;top:30mm;width:70mm;font-weight:bold;">DOCUMENTO
+                        NO VÁLIDO COMO FACTURA</span>
+                    <t t-call="biocen_default.report_preprinted_internal_header" />
+                </div>
+            </div>
+        </template>
+
+        <!-- Template -->
+        <template id="report_preprinted">
+            <t t-call="web.html_container">
+                <t t-as="o" t-foreach="docs">
+                    <div class="article" t-att-data-oe-lang="o and o.env.context.get('lang')">
+                        <t t-set="chunk_size" t-value="9" />
+                        <t t-set="chunks"
+                            t-value="[o.move_line_ids_without_package[i:i+chunk_size] for i in range(0, len(o.move_line_ids_without_package), chunk_size)]" />
+                        <t t-as="c" t-foreach="chunks">
+                            <t t-set="records" t-value="c" />
+                            <t t-call="biocen_default.report_preprinted_pages" />
+                            <p style="page-break-before:always;"/>
+                        </t>
+                    </div>
+                </t>
+            </t>
+        </template>
+
+        <!-- Add report -->
+        <report id="biocen_report_preprinted"
+            model="stock.picking"
+            name="biocen_default.report_preprinted"
+            report_type="qweb-pdf"
+            string="Preimpreso"
+            print_report_name="('Operación - ' + object.name)" />
+        <record id="biocen_report_preprinted" model="ir.actions.report">
+            <field name="paperformat_id" ref="paperformat_preprinted" />
+        </record>
+    </data>
+</odoo>

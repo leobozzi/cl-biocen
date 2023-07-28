@@ -115,6 +115,7 @@
 
     ],
     'data': [
+        'report/report_voucher_preprinted.xml',
         ],
     'test': [
     ],
