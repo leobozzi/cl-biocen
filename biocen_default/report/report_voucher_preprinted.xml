@@ -110,16 +110,12 @@
                     <span
                         style="position:absolute;left:180mm;top:25mm;width:70mm;font-size:1.2em;font-weight:bold;">
                         ORIGINAL</span>
-                    <span style="position:absolute;left:130mm;top:30mm;width:70mm;font-weight:bold;">DOCUMENTO
-                        NO VÁLIDO COMO FACTURA</span>
                     <t t-call="biocen_default.report_preprinted_internal_header" />
                 </div>
                 <div style="width:100%; top:35mm;height:160mm; position:relative;">
                     <span
                         style="position:absolute;left:180mm;top:25mm;width:70mm;font-size:1.2em;font-weight:bold;">
                         DUPLICADO</span>
-                    <span style="position:absolute;left:130mm;top:30mm;width:70mm;font-weight:bold;">DOCUMENTO
-                        NO VÁLIDO COMO FACTURA</span>
                     <t t-call="biocen_default.report_preprinted_internal_header" />
                 </div>
             </div>
