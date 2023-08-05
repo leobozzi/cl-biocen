@@ -221,7 +221,7 @@
         'https://github.com/leobozzi/cl-biocen cl-biocen',
         #'https://github.com/leobozzi/odoo-addons-utils.git',
         'https://github.com/odoo/enterprise enterprise',
-        #'https://github.com/vangrow/account-modules.git',
+        'https://github.com/vangrow/account-modules.git',
 
 
         # Odoomates
