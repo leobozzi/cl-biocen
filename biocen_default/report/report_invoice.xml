@@ -7,7 +7,7 @@
 
             <xpath expr="//div[@id='total']/div" position="before">
                 <t t-if="o.currency_id == o.company_id.currency_id">
-                    <t t-if="o.l10n_ar_afip_concept != 'Services'">
+                    <t t-if="o.l10n_ar_afip_concept != '2'">
                         <br />
                         <strong>Tipo de Cambio: </strong>
                         <span
