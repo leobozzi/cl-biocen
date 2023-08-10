@@ -38,9 +38,11 @@ class AccountMove(models.Model):
     @api.depends('usd_currency_rate','amount_total')
     def _computed_usd_total(self):
         for res in self:
-            res.usd_total = res.amount_total / res.usd_currency_rate
+            if res.usd_currency_rate != 0:
+                res.usd_total = res.amount_total / res.usd_currency_rate
 
     @api.depends('usd_currency_rate','amount_residual')
     def _computed_usd_residual(self):
         for res in self:
-            res.usd_residual = res.amount_residual / res.usd_currency_rate
+            if res.usd_currency_rate != 0:
+                res.usd_residual = res.amount_residual / res.usd_currency_rate
