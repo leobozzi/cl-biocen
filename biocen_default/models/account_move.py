@@ -40,9 +40,13 @@ class AccountMove(models.Model):
         for res in self:
             if res.usd_currency_rate != 0:
                 res.usd_total = res.amount_total / res.usd_currency_rate
+            else:
+                res.usd_total = 0.0
 
     @api.depends('usd_currency_rate','amount_residual')
     def _computed_usd_residual(self):
         for res in self:
             if res.usd_currency_rate != 0:
                 res.usd_residual = res.amount_residual / res.usd_currency_rate
+            else:
+                res.usd_residual = 0.0
