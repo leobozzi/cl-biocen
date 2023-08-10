@@ -117,7 +117,7 @@
     'data': [
         'report/report_voucher_preprinted.xml',
         'report/report_invoice.xml',   
-        #'view/account_move_view.xml',     
+        'view/account_move_view.xml',     
         ],
     'test': [
     ],

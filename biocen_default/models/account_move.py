@@ -15,9 +15,14 @@ class AccountMove(models.Model):
         compute="_computed_usd_currency_rate"
     )
 
-    usd_total = fields.Float(
+    usd_total = fields.Monetary(
         string="USD Total",
         compute="_computed_usd_total"
+    )
+
+    usd_residual = fields.Monetary(
+        string="USD Residual",
+        compute="_computed_usd_residual"
     )
 
     @api.depends('invoice_date')
@@ -30,7 +35,12 @@ class AccountMove(models.Model):
             else:
                 res.usd_currency_rate = 0.0
 
-    @api.depends('usd_currency_rate')
+    @api.depends('usd_currency_rate','amount_total')
     def _computed_usd_total(self):
         for res in self:
-            res.usd_total = res.amount_total_signed / res.usd_currency_rate
+            res.usd_total = res.amount_total / res.usd_currency_rate
+
+    @api.depends('usd_currency_rate','amount_residual')
+    def _computed_usd_residual(self):
+        for res in self:
+            res.usd_residual = res.amount_residual / res.usd_currency_rate
