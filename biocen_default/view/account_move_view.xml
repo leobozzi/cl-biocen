@@ -1,16 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <!--Main Account Move FROM view-->
+	<record id="custom_account_move_from_view" model="ir.ui.view">
+        <field name="name">custom_account_move_from_view</field>
+		<field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+		<field name="arch" type="xml">
+			<xpath expr="//field[@name='payment_reference']" position="after">
+                <field name="usd_currency_rate_agree" string="Tipo de Cambio Acordado" attrs= "{ 'readonly': [('state','!=','draft')]}" />
+            </xpath>
+		</field>
+	</record>
+
 	<!--Main Account Move TREE view-->
 	<record id="custom_account_move_tree_view" model="ir.ui.view">
         <field name="name">custom_account_move_tree_view</field>
 		<field name="model">account.move</field>
         <field name="inherit_id" ref="account.view_invoice_tree"/>
 		<field name="arch" type="xml">
-			<xpath expr="//field[@name='amount_total_signed']" position="after">
-                <field name="usd_total" string="Total en USD" sum="Total en USD" optional="hide"/>
-            </xpath>
-            <xpath expr="//field[@name='amount_residual_signed']" position="after">
-                <field name="usd_residual" string="Importe adeudado en USD" sum="Importe adeudado en USD" optional="hide"/>
+			<xpath expr="//field[@name='amount_residual_signed']" position="after">
+                <field name="usd_currency_id" invisible="1"/>
+                <field name="usd_total_agree" string="Total en USD" widget="monetary" sum="Total en USD" options="{'currency_field': 'usd_currency_id'}" optional="hide" />
+                <field name="usd_residual_agree" string="Importe adeudado en USD" widget="monetary" sum="Importe adeudado en USD" options="{'currency_field': 'usd_currency_id'}" optional="hide"/>
+                <field name="usd_currency_rate_agree" optional="hide" options="{'currency_field': 'currency_id'}"/>        
             </xpath>
 		</field>
 	</record>
