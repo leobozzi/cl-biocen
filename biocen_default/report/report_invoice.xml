@@ -13,6 +13,10 @@
                     </t>
                 </t>
             </xpath>
+
+            <xpath expr="//table//tbody[@class='invoice_tbody']" position="attributes">
+                <attribute name="style">font-size:12px;</attribute>
+            </xpath>
         </template>
     </data>
 </odoo>
