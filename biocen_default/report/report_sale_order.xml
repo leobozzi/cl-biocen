@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Orden de Venta -->
+        <template id="account_report_saleorder_document" inherit_id="sale.report_saleorder_document">
+            <t t-set="doc" t-value="doc.with_context(lang=doc.partner_id.lang)" />
+            <xpath expr="//table//tbody[@class='sale_tbody']" position="attributes">
+                <attribute name="style">font-size:12px;</attribute>
+            </xpath>
+
+            <xpath expr="//table//thead//tr//th[@name='th_priceunit']" position="after">
+                <th name="th_price_second_unit" class="text-right">Precio Ref.</th>
+            </xpath>
+            <xpath expr="//table//tbody//tr//td[@name='td_priceunit']" position="after">
+                <td name="td_price_second_unit" class="text-right">
+                    <span
+                        t-field="line.price_secondary_unit" />
+                </td>
+            </xpath>
+        </template>
+    </data>
+</odoo>

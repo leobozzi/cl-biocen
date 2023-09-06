@@ -4,7 +4,7 @@
         <!-- Factura Electrónica Moneda -->
         <template id="account_report_invoice_document" inherit_id="account.report_invoice_document">
             <t t-set="o" t-value="o.with_context(lang=lang)" />
-            
+
             <xpath expr="//div[@name='comment']" position="after">
                 <t t-if="o.currency_id == o.company_id.currency_id">
                     <t t-if="o.l10n_ar_afip_concept != '2'">
@@ -17,6 +17,25 @@
             <xpath expr="//table//tbody[@class='invoice_tbody']" position="attributes">
                 <attribute name="style">font-size:12px;</attribute>
             </xpath>
+
+            <xpath expr="//table//thead//tr//th[@name='th_priceunit']" position="after">
+                <th name="th_price_second_unit" class="text-right">Precio Ref.</th>
+            </xpath>
+
+            <xpath expr="//table//tbody//tr//td[3]" position="after">
+                <td name="td_price_second_unit" class="text-right">
+                    <t t-if="line.product_id.secondary_uom_id">
+                        <t t-set="price_second_unit"
+                            t-value="line.price_unit / line.product_id.secondary_uom_ratio" />
+                        <span
+                            t-out="o.currency_id.symbol +  str(price_second_unit) + '/' + line.product_id.secondary_uom_id.name" />
+                    </t>
+                    <t t-if="not line.product_id.secondary_uom_id">
+                        <span></span>
+                    </t>
+                </td>
+            </xpath>
+
         </template>
     </data>
 </odoo>

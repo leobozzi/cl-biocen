@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Main Product Product FROM view-->
+	<record id="custom_product_product_from_view" model="ir.ui.view">
+        <field name="name">custom_product_product_from_view</field>
+		<field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+		<field name="arch" type="xml">
+			<xpath expr="//field[@name='uom_po_id']" position="after">
+                <field name="secondary_uom_id" />
+				<field name="secondary_uom_ratio" attrs="{'invisible': [('secondary_uom_id','=',False)], 'required': [('secondary_uom_id','!=',False)]}"/>
+            </xpath>
+		</field>
+	</record>
+
+	
+</odoo>

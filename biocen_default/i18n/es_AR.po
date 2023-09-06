@@ -1,0 +1,163 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* biocen_default
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e-20230802\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-09-05 15:03+0000\n"
+"PO-Revision-Date: 2023-09-05 15:03+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: biocen_default
+#: model:ir.actions.report,print_report_name:biocen_default.biocen_report_preprinted
+msgid "('Operación - ' + object.name)"
+msgstr ""
+
+#. module: biocen_default
+#: model_terms:ir.ui.view,arch_db:biocen_default.report_preprinted_internal_header
+msgid "- Orden:"
+msgstr ""
+
+#. module: biocen_default
+#: model_terms:ir.ui.view,arch_db:biocen_default.report_preprinted_pages
+msgid ""
+"<span style=\"position:absolute;left:180mm;top:25mm;width:70mm;font-size:1.2em;font-weight:bold;\">\n"
+"                        DUPLICADO</span>"
+msgstr ""
+
+#. module: biocen_default
+#: model_terms:ir.ui.view,arch_db:biocen_default.report_preprinted_pages
+msgid ""
+"<span style=\"position:absolute;left:180mm;top:25mm;width:70mm;font-size:1.2em;font-weight:bold;\">\n"
+"                        ORIGINAL</span>"
+msgstr ""
+
+#. module: biocen_default
+#: model_terms:ir.ui.view,arch_db:biocen_default.report_preprinted_internal_move
+msgid "<span>CANTIDAD</span>"
+msgstr ""
+
+#. module: biocen_default
+#: model_terms:ir.ui.view,arch_db:biocen_default.report_preprinted_internal_move
+msgid "<span>COD.</span>"
+msgstr ""
+
+#. module: biocen_default
+#: model_terms:ir.ui.view,arch_db:biocen_default.report_preprinted_internal_move
+msgid "<span>LOTE</span>"
+msgstr ""
+
+#. module: biocen_default
+#: model_terms:ir.ui.view,arch_db:biocen_default.report_preprinted_internal_move
+msgid "<span>PRODUCTO</span>"
+msgstr ""
+
+#. module: biocen_default
+#: model_terms:ir.ui.view,arch_db:biocen_default.report_preprinted_internal_move
+msgid "<span>UD.</span>"
+msgstr ""
+
+#. module: biocen_default
+#: model_terms:ir.ui.view,arch_db:biocen_default.report_preprinted_internal_header
+msgid "Fecha:"
+msgstr ""
+
+#. module: biocen_default
+#: model_terms:ir.ui.view,arch_db:biocen_default.custom_account_move_tree_view
+msgid "Importe adeudado en USD"
+msgstr ""
+
+#. module: biocen_default
+#: model_terms:ir.ui.view,arch_db:biocen_default.report_preprinted_internal_move
+msgid "Nro."
+msgstr ""
+
+#. module: biocen_default
+#: model_terms:ir.ui.view,arch_db:biocen_default.account_report_saleorder_document
+msgid "Precio Ref."
+msgstr ""
+
+#. module: biocen_default
+#: model:ir.actions.report,name:biocen_default.biocen_report_preprinted
+msgid "Preimpreso"
+msgstr ""
+
+#. module: biocen_default
+#: model:ir.model.fields,field_description:biocen_default.field_sale_order_line__price_secondary_unit
+msgid "Price Secondary Unit"
+msgstr "Precio Ref."
+
+#. module: biocen_default
+#: model_terms:ir.ui.view,arch_db:biocen_default.report_preprinted_internal_header
+msgid "Ref.:"
+msgstr ""
+
+#. module: biocen_default
+#: model:ir.model.fields,field_description:biocen_default.field_product_product__secondary_uom_id
+msgid "Secondary Uom"
+msgstr "Unidad de Ref."
+
+#. module: biocen_default
+#: model_terms:ir.ui.view,arch_db:biocen_default.custom_account_move_from_view
+msgid "Tipo de Cambio Acordado"
+msgstr ""
+
+#. module: biocen_default
+#: model_terms:ir.ui.view,arch_db:biocen_default.custom_account_move_tree_view
+msgid "Total en USD"
+msgstr ""
+
+#. module: biocen_default
+#: model:ir.model.fields,field_description:biocen_default.field_account_bank_statement_line__usd_currency_rate_agree
+#: model:ir.model.fields,field_description:biocen_default.field_account_move__usd_currency_rate_agree
+#: model:ir.model.fields,field_description:biocen_default.field_account_payment__usd_currency_rate_agree
+msgid "USD Currency rate agree"
+msgstr ""
+
+#. module: biocen_default
+#: model:ir.model.fields,field_description:biocen_default.field_account_bank_statement_line__usd_residual_agree
+#: model:ir.model.fields,field_description:biocen_default.field_account_move__usd_residual_agree
+#: model:ir.model.fields,field_description:biocen_default.field_account_payment__usd_residual_agree
+msgid "USD Residual agree"
+msgstr ""
+
+#. module: biocen_default
+#: model:ir.model.fields,field_description:biocen_default.field_account_bank_statement_line__usd_total_agree
+#: model:ir.model.fields,field_description:biocen_default.field_account_move__usd_total_agree
+#: model:ir.model.fields,field_description:biocen_default.field_account_payment__usd_total_agree
+msgid "USD Total agree"
+msgstr ""
+
+#. module: biocen_default
+#: model:ir.model.fields,field_description:biocen_default.field_account_bank_statement_line__usd_currency_id
+#: model:ir.model.fields,field_description:biocen_default.field_account_move__usd_currency_id
+#: model:ir.model.fields,field_description:biocen_default.field_account_payment__usd_currency_id
+msgid "Usd Currency"
+msgstr ""
+
+#. module: biocen_default
+#: model:ir.model,name:biocen_default.model_account_move
+msgid "account.move"
+msgstr ""
+
+#. module: biocen_default
+#: model:ir.model,name:biocen_default.model_product_product
+msgid "product.product"
+msgstr ""
+
+#. module: biocen_default
+#: model:ir.model.fields,field_description:biocen_default.field_product_product__secondary_uom_ratio
+msgid "ratio"
+msgstr "Relación"
+
+#. module: biocen_default
+#: model:ir.model,name:biocen_default.model_sale_order_line
+msgid "sale.order.line"
+msgstr ""

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Custom Sale Order FROM view-->
+	<record id="custom_sale_order_from_view" model="ir.ui.view">
+        <field name="name">custom_sale_order_from_view</field>
+		<field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+		<field name="arch" type="xml">
+			<xpath expr="//tree//field[@name='price_unit']" position="after">
+                <field name="price_secondary_unit" optional="hide"/>
+            </xpath>
+		</field>
+	</record>
+</odoo>
