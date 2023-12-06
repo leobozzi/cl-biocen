@@ -125,7 +125,7 @@
         ],
     'assets': {
         'web.assets_backend':  [
-            '/infas_default/static/src/js/user_menu.js',
+            '/biocen_default/static/src/js/user_menu.js',
         ],
     },
     'test': [
