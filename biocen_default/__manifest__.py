@@ -123,6 +123,11 @@
         'view/sale_order_view.xml',  
         'view/sale_order_line_view.xml',  
         ],
+    'assets': {
+        'web.assets_backend':  [
+            '/infas_default/static/src/js/user_menu.js',
+        ],
+    },
     'test': [
     ],
     'installable': True,
