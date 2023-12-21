@@ -58,6 +58,10 @@
                                     </td>
                                     <td>
                                         <span t-field="line.qty_done" />
+                                        <t t-if="line.product_id.secondary_uom_ratio">
+                                            <t t-set="secondary_qty" t-value="line.qty_done * line.product_id.secondary_uom_ratio"/>
+                                            <span t-raw="'(%s %s)' %(secondary_qty, line.product_id.secondary_uom_id.name)" />
+                                        </t>
                                     </td>
                                     <td>
                                         <span t-field="line.product_uom_id" />
