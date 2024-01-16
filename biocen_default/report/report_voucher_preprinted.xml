@@ -70,6 +70,9 @@
                             </t>
                         </tbody>
                     </table>
+                    <span t-if="o.note" style="font-size:1em;font-weight:bold;">
+                        <a t-field="o.note"/>
+                    </span>
                 </div>
             </div>
         </template>
@@ -97,7 +100,7 @@
                 <div t-if="o.partner_id" name="sale_order_header" style="position:absolute;">
                     <span
                         style="position:absolute;left:15mm;top:35mm;width:130mm;font-size:1em;font-weight:bold;">
-                        Ref.: <a t-field="o.name" /> - Orden: <a t-field="o.origin" />
+                        Ref.: <a t-field="o.name" /> - Orden: <a t-field="o.origin" /> - (<a t-field="o.sale_id.client_order_ref" />)
                     </span>
                 </div>
                 <div t-if="o.move_line_ids_without_package" name="move_line"
