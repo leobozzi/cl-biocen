@@ -6,6 +6,9 @@
 		<field name="model">sale.order.line</field>
         <field name="inherit_id" ref="sale_ux.sale_order_line_usability_tree"/>
 		<field name="arch" type="xml">
+			<xpath expr="//tree//field[@name='order_id']" position="after">
+				<field name="vouchers" optional="show"/>
+			</xpath>
 			<xpath expr="//tree//field[@name='price_unit']" position="after">
                 <field name="price_secondary_unit" optional="hide"/>
             </xpath>

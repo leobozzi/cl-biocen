@@ -13,6 +13,12 @@ class SaleOrderLine(models.Model):
         string="Price Secondary Unit",
         compute='_computed_price_secondary_unit'
     )
+    vouchers = fields.Char(
+        string="Remitos",
+        related='move_ids.vouchers'
+
+    )
+
 
     @api.depends('product_id','price_unit','product_uom_qty')
     def _computed_price_secondary_unit(self):
