@@ -34,6 +34,7 @@
         'calendar',
         'website',
         'base_ux',
+        'stock_voucher',
 
         # Contabilidad
         'account',
